@@ -15,6 +15,8 @@
 		<junit.jupiter.version>5.1.0</junit.jupiter.version>
 		<junit.vintage.version>5.1.0</junit.vintage.version>
 		<junit.platform.version>1.1.0</junit.platform.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 
@@ -111,9 +113,13 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.1</version>
+				<version>3.1.2</version>
 				<configuration>
 					<skipTests>true</skipTests>
+					<argLine>
+						--add-opens java.base/java.lang=ALL-UNNAMED
+						--add-opens java.base/java.util=ALL-UNNAMED
+					</argLine>
 				</configuration>
 			</plugin>
 
