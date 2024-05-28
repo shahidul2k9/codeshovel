@@ -158,14 +158,16 @@ public class CachingRepositoryService implements RepositoryService {
 	}
 
 	private void handleCacheHits() {
-		this.cacheHits += 1;
+		/*
+		TODO : uncomment
+		 this.cacheHits += 1;
 		long cacheSize = (RamUsageEstimator.sizeOf(this.cacheCommitFileContent) +
 				RamUsageEstimator.sizeOf(this.cacheObjectIdCommit) +
 				RamUsageEstimator.sizeOf(this.cacheObjectIdFileContent)) / 1024;
 		if (this.cacheHits % 100 == 0) {
 			System.out.println("CACHE HITS: " + this.cacheHits);
 			System.out.println("TOTAL CACHE SIZE (KB): " + cacheSize);
-		}
+		}*/
 	}
 
 	private void handleCacheAdd(Map cache, LinkedList<String> cacheKeys, String cacheKey, Object value, int maxSize) {
