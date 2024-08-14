@@ -46,7 +46,7 @@ public class JavaFunction extends AbstractFunction<MethodDeclaration> implements
 		String ret = null;
 		List<String> modifiers = new ArrayList<String>();
 		for (Modifier modifier : parameterElement.getModifiers()) {
-			modifiers.add(modifier.asString());
+			modifiers.add(modifier.toString());
 		}
 		if (modifiers.size() > 0) {
 			ret = StringUtils.join(modifiers, "-");
@@ -80,7 +80,7 @@ public class JavaFunction extends AbstractFunction<MethodDeclaration> implements
 	protected Ymodifiers getInitialModifiers(MethodDeclaration method) {
 		List<String> modifiers = new ArrayList<>();
 		for (Modifier modifier : method.getModifiers()) {
-			modifiers.add(modifier.asString());
+			modifiers.add(modifier.toString());
 		}
 		return new Ymodifiers(modifiers);
 	}

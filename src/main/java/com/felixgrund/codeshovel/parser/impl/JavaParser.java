@@ -31,7 +31,7 @@ public class JavaParser extends AbstractParser implements Yparser {
 
 	@Override
 	protected List<Yfunction> parseMethods() throws ParseException {
-		CompilationUnit rootCompilationUnit = com.github.javaparser.JavaParser.parse(this.fileContent);
+		CompilationUnit rootCompilationUnit = parseCompilationUnit(this.fileContent);
 		if (rootCompilationUnit == null) {
 			throw new ParseException("Could not parseMethods root compilation unit.", this.filePath, this.fileContent);
 		}
@@ -108,4 +108,17 @@ public class JavaParser extends AbstractParser implements Yparser {
 		}
 	}
 
+	private CompilationUnit parseCompilationUnit(String sourceCode){
+		return new com.github.javaparser.JavaParser()
+				.parse(sourceCode).getResult()
+				.orElseThrow(()-> new RuntimeException("Failed to to parse code as compilation unit"));
+	}
+
+	private MethodDeclaration parseMethodDeclaration(String sourceCode){
+		return new com.github.javaparser.JavaParser()
+				.parseBodyDeclaration(sourceCode)
+				.getResult()
+				.orElseThrow(()-> new RuntimeException("Failed to parse code as method declaration"))
+				.asMethodDeclaration();
+	}
 }

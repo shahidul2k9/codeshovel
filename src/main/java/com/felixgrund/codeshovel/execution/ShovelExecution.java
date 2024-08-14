@@ -26,8 +26,8 @@ public class ShovelExecution {
 
 	private static final Logger log = LoggerFactory.getLogger(ShovelExecution.class);
 	static {
-		com.github.javaparser.JavaParser.setStaticConfiguration(
-				new ParserConfiguration().setLanguageLevel(ParserConfiguration.LanguageLevel.RAW));
+	/*	com.github.javaparser.JavaParser.setStaticConfiguration(
+				new ParserConfiguration().setLanguageLevel(ParserConfiguration.LanguageLevel.RAW));*/
 	}
 
 	public static Yresult runMining(StartEnvironment startEnv, String acceptedFileExtension) throws Exception {
