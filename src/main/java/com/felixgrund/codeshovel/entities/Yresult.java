@@ -7,6 +7,8 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.LinkedHashMap;
 
 public class Yresult extends LinkedHashMap<String, Ychange> {
+	private String functionId;
+	private int numCommitsSeen;
 
 	private StringBuilder builder = new StringBuilder();
 
@@ -28,4 +30,20 @@ public class Yresult extends LinkedHashMap<String, Ychange> {
 		}
 		return jsonObj.toString();
 	}
+
+    public String getFunctionId() {
+        return functionId;
+    }
+
+    public void setFunctionId(String functionId) {
+        this.functionId = functionId;
+    }
+
+    public int getNumCommitsSeen() {
+        return numCommitsSeen;
+    }
+
+    public void setNumCommitsSeen(int numCommitsSeen) {
+        this.numCommitsSeen = numCommitsSeen;
+    }
 }

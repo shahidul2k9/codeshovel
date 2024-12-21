@@ -155,6 +155,8 @@ public class ShovelExecution {
 
 		printMethodEnd(method, startEnv.getOutputFilePath());
 
+		yresult.setFunctionId(task.getStartFunction().getId());
+		yresult.setNumCommitsSeen(recursiveAnalysisTask.getNumAnalyzedCommits());
 		return yresult;
 	}
 

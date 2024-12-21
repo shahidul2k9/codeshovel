@@ -35,6 +35,8 @@ public class Yintroduced extends Ychange {
 	@Override
 	public JsonObject toJsonObject() {
 		JsonObject obj = super.toJsonObject();
+		obj.addProperty("path", newFunction.getSourceFilePath());
+		obj.addProperty("actualSource", newFunction.getSourceFragment());
 		obj.addProperty("diff", getDiffAsString());
 		return obj;
 	}
