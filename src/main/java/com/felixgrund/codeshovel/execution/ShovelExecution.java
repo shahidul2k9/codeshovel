@@ -72,11 +72,13 @@ public class ShovelExecution {
 			try {
 				if (startEnv.getFunctionName() == null || startEnv.getFunctionName().equals(method.getName())) {
 					if (startEnv.getFunctionStartLine() <= 0 || startEnv.getFunctionStartLine() == method.getNameLineNumber()) {
+						Yresult methodResult = runForMethod(startEnv, filePath, method);
 						if (accumulateResults) {
-							yresult.putAll(runForMethod(startEnv, filePath, method));
-						} else {
-							runForMethod(startEnv, filePath, method);
+							yresult.putAll(methodResult);
 						}
+						yresult.setFunctionId(methodResult.getFunctionId());
+						yresult.setNumCommitsSeen(methodResult.getNumCommitsSeen());
+
 					}
 				}
 			} catch (Exception e) {
