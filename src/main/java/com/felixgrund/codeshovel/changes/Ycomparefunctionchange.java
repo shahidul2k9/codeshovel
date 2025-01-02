@@ -74,6 +74,8 @@ public abstract class Ycomparefunctionchange extends Ychange {
 		obj.addProperty("commitsBetweenForRepo", getCommitsBetweenForRepo().size());
 		obj.addProperty("commitsBetweenForFile", getCommitsBetweenForFile().size());
 		obj.addProperty("diff", getDiffAsString());
+		obj.addProperty("actualSource", newFunction.getSourceFragment());
+		obj.addProperty("path", newFunction.getSourceFilePath());
 		obj.add("extendedDetails", getExtendedDetailsJsonObject());
 		return obj;
 	}
